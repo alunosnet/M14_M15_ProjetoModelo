@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace m14_trabalho_modelo {
+namespace M14_M15_ProjetoModelo {
     class Utils {
         static public byte[] ImagemParaVetor(string ficheiro) {
             FileStream fs = new FileStream(ficheiro, FileMode.Open, FileAccess.Read);

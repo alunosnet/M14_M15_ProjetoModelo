@@ -13,5 +13,14 @@ namespace M14_M15_ProjetoModelo {
         public Form1() {
             InitializeComponent();
         }
+        //ficheiro - sair
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+        //editar - livros
+        private void livrosToolStripMenuItem_Click(object sender, EventArgs e) {
+            frLivros f = new frLivros();
+            f.Show();
+        }
     }
 }
