@@ -93,7 +93,8 @@ namespace M14_M15_ProjetoModelo {
             int nlivro = int.Parse(dataGridView1.Rows[linha].Cells[0].Value.ToString());
             //form editar livro
             frEditarLivro f = new frEditarLivro(nlivro);
-            f.Show();
+            f.ShowDialog();
+            atualizaGrelha();
         }
     }
 }
