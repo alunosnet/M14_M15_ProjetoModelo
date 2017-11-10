@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frEditarLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frEditarLivro.Designer.cs">
+      <DependentUpon>frEditarLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="frLivros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frEditarLivro.resx">
+      <DependentUpon>frEditarLivro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frLivros.resx">
       <DependentUpon>frLivros.cs</DependentUpon>
