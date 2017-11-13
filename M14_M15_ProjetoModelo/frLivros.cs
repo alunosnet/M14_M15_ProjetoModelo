@@ -96,5 +96,15 @@ namespace M14_M15_ProjetoModelo {
             f.ShowDialog();
             atualizaGrelha();
         }
+        //pesquisar
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT * FROM Livros WHERE nome like @nome";
+            string nome = "%" + textBox4.Text + "%";
+            List<SqlParameter> parametros = new List<SqlParameter>() {
+                new SqlParameter(){ParameterName="@nome",SqlDbType=SqlDbType.VarChar,Value=nome},
+            };
+            dataGridView1.DataSource = BaseDados.Instance.devolveConsulta(sql,parametros);
+        }
     }
 }

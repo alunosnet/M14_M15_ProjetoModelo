@@ -22,5 +22,23 @@ namespace M14_M15_ProjetoModelo {
             frLivros f = new frLivros();
             f.Show();
         }
+
+        private void leitoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frLeitores f = new frLeitores();
+            f.Show();
+        }
+
+        private void empréstimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frEmprestimos f = new frEmprestimos();
+            f.Show();
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frDevolve f = new frDevolve();
+            f.Show();
+        }
     }
 }

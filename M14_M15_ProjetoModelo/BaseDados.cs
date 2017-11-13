@@ -32,6 +32,11 @@ namespace M14_M15_ProjetoModelo {
                 Console.Write(e.Message);
             }
         }
+        //iniciar uma transação
+        public SqlTransaction iniciarTransacao()
+        {
+            return ligacaoBD.BeginTransaction();
+        }
         /// <summary>
         /// Recebe um comando SQL e executa-o na base de dados
         /// </summary>
@@ -54,8 +59,28 @@ namespace M14_M15_ProjetoModelo {
             comando.Dispose();
             comando = null;
         }
+        public void executaSQL(string sql, List<SqlParameter> parametros,SqlTransaction transacao)
+        {
+            SqlCommand comando = new SqlCommand(sql, ligacaoBD);
+            comando.Parameters.AddRange(parametros.ToArray());
+            comando.Transaction = transacao;
+            comando.ExecuteNonQuery();
+            comando.Dispose();
+            comando = null;
+        }
         public DataTable devolveConsulta(string sql) {
             SqlCommand comando = new SqlCommand(sql, ligacaoBD);
+            DataTable registos = new DataTable();
+            SqlDataReader dados = comando.ExecuteReader();
+            registos.Load(dados);
+            dados = null;
+            comando.Dispose();
+            return registos;
+        }
+        public DataTable devolveConsulta(string sql, List<SqlParameter> parametros)
+        {
+            SqlCommand comando = new SqlCommand(sql, ligacaoBD);
+            comando.Parameters.AddRange(parametros.ToArray());
             DataTable registos = new DataTable();
             SqlDataReader dados = comando.ExecuteReader();
             registos.Load(dados);
