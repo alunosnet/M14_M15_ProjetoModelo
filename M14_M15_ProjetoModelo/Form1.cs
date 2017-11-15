@@ -40,5 +40,10 @@ namespace M14_M15_ProjetoModelo {
             frDevolve f = new frDevolve();
             f.Show();
         }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e) {
+            frConsultas f = new frConsultas();
+            f.Show();
+        }
     }
 }

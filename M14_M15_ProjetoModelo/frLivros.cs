@@ -12,12 +12,36 @@ using System.Windows.Forms;
 
 namespace M14_M15_ProjetoModelo {
     public partial class frLivros : Form {
+        //nr de registos por página
+        const int registosPorPagina = 5;
+
         public frLivros() {
             InitializeComponent();
             atualizaGrelha();
+            atualizaNrPaginas();
         }
         public void atualizaGrelha() {
-            dataGridView1.DataSource = BaseDados.Instance.devolveConsulta("SELECT * FROM Livros");
+            if (comboBox1.SelectedIndex == -1)
+                dataGridView1.DataSource = BaseDados.Instance.devolveConsulta("SELECT * FROM Livros");
+            else {
+                int pagina = comboBox1.SelectedIndex + 1;
+                if (pagina <= 0) pagina = 1;
+                int primeiroRegisto = (pagina - 1) * registosPorPagina + 1;
+                string strSQL = $@"select nlivro as id,nome AS Nome from 
+                                (select row_number() over (order by nome) as rownum, *
+                                from Livros) as p
+                                where rownum>={pagina} and rownum<={(pagina + registosPorPagina)}";
+                dataGridView1.DataSource = BaseDados.Instance.devolveConsulta(strSQL);
+            }
+            
+        }
+        private void atualizaNrPaginas() {
+            comboBox1.Items.Clear();
+            DataTable dados = BaseDados.Instance.devolveConsulta("SELECT count(*) FROM Livros");
+            int nRegistos = int.Parse(dados.Rows[0][0].ToString());
+            int nPaginas = (int)Math.Ceiling(nRegistos / (float)registosPorPagina);
+            for (int i = 1; i <= nPaginas; i++)
+                comboBox1.Items.Add(i);
         }
         //adicionar registo
         private void button2_Click(object sender, EventArgs e) {
@@ -51,6 +75,7 @@ namespace M14_M15_ProjetoModelo {
             //todo: limpar o form
             //atualiza a grelha com os livros
             atualizaGrelha();
+            atualizaNrPaginas();
         }
         //escolher uma capa
         private void button1_Click(object sender, EventArgs e) {
@@ -105,6 +130,10 @@ namespace M14_M15_ProjetoModelo {
                 new SqlParameter(){ParameterName="@nome",SqlDbType=SqlDbType.VarChar,Value=nome},
             };
             dataGridView1.DataSource = BaseDados.Instance.devolveConsulta(sql,parametros);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            atualizaGrelha();
         }
     }
 }

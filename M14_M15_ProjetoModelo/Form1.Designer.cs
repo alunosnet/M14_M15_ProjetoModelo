@@ -78,33 +78,33 @@
             // leitoresToolStripMenuItem
             // 
             this.leitoresToolStripMenuItem.Name = "leitoresToolStripMenuItem";
-            this.leitoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.leitoresToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.leitoresToolStripMenuItem.Text = "Leitores";
             this.leitoresToolStripMenuItem.Click += new System.EventHandler(this.leitoresToolStripMenuItem_Click);
             // 
             // livrosToolStripMenuItem
             // 
             this.livrosToolStripMenuItem.Name = "livrosToolStripMenuItem";
-            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.livrosToolStripMenuItem.Text = "Livros";
             this.livrosToolStripMenuItem.Click += new System.EventHandler(this.livrosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // empréstimosToolStripMenuItem
             // 
             this.empréstimosToolStripMenuItem.Name = "empréstimosToolStripMenuItem";
-            this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.empréstimosToolStripMenuItem.Text = "Empréstimos";
             this.empréstimosToolStripMenuItem.Click += new System.EventHandler(this.empréstimosToolStripMenuItem_Click);
             // 
             // devoluçãoToolStripMenuItem
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
             this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
             // 
@@ -113,6 +113,7 @@
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
             // Form1
             // 
