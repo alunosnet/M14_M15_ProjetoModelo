@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
-using System.Data;
 
-namespace M14_M15_ProjetoModelo {
-    class BaseDados {
+namespace BaseDadosNS
+{
+    public class BaseDados
+    {
         private static BaseDados instance;
         public static BaseDados Instance {
             get {
@@ -33,8 +35,7 @@ namespace M14_M15_ProjetoModelo {
             }
         }
         //iniciar uma transação
-        public SqlTransaction iniciarTransacao()
-        {
+        public SqlTransaction iniciarTransacao() {
             return ligacaoBD.BeginTransaction();
         }
         /// <summary>
@@ -52,15 +53,14 @@ namespace M14_M15_ProjetoModelo {
         /// </summary>
         /// <param name="sql">Comando SQL</param>
         /// <param name="parametros">Lista de parâmetros</param>
-        public void executaSQL(string sql,List<SqlParameter> parametros) {
+        public void executaSQL(string sql, List<SqlParameter> parametros) {
             SqlCommand comando = new SqlCommand(sql, ligacaoBD);
             comando.Parameters.AddRange(parametros.ToArray());
             comando.ExecuteNonQuery();
             comando.Dispose();
             comando = null;
         }
-        public void executaSQL(string sql, List<SqlParameter> parametros,SqlTransaction transacao)
-        {
+        public void executaSQL(string sql, List<SqlParameter> parametros, SqlTransaction transacao) {
             SqlCommand comando = new SqlCommand(sql, ligacaoBD);
             comando.Parameters.AddRange(parametros.ToArray());
             comando.Transaction = transacao;
@@ -77,8 +77,7 @@ namespace M14_M15_ProjetoModelo {
             comando.Dispose();
             return registos;
         }
-        public DataTable devolveConsulta(string sql, List<SqlParameter> parametros)
-        {
+        public DataTable devolveConsulta(string sql, List<SqlParameter> parametros) {
             SqlCommand comando = new SqlCommand(sql, ligacaoBD);
             comando.Parameters.AddRange(parametros.ToArray());
             DataTable registos = new DataTable();
@@ -88,5 +87,6 @@ namespace M14_M15_ProjetoModelo {
             comando.Dispose();
             return registos;
         }
+
     }
 }

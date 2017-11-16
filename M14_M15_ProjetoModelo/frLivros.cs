@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BaseDadosNS;
 namespace M14_M15_ProjetoModelo {
     public partial class frLivros : Form {
         //nr de registos por página
@@ -30,7 +30,7 @@ namespace M14_M15_ProjetoModelo {
                 string strSQL = $@"select nlivro as id,nome AS Nome from 
                                 (select row_number() over (order by nome) as rownum, *
                                 from Livros) as p
-                                where rownum>={pagina} and rownum<={(pagina + registosPorPagina)}";
+                                where rownum>={primeiroRegisto} and rownum<={(primeiroRegisto + registosPorPagina)}";
                 dataGridView1.DataSource = BaseDados.Instance.devolveConsulta(strSQL);
             }
             

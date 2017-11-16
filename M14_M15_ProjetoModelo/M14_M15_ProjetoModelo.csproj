@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BaseDados">
+      <HintPath>..\BaseDados\bin\Debug\BaseDados.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -46,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDados.cs" />
     <Compile Include="Elemento.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

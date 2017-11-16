@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BaseDadosNS;
 namespace M14_M15_ProjetoModelo {
     public partial class frEditarLivro : Form {
         string capaAtual;
